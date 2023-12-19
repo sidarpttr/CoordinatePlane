@@ -35,8 +35,9 @@ public:
     double slope;
     double angle;
     string name;
-    Line(string, Point &, Point &);
+    Line(Point&, Point&, string);
     void info(std::initializer_list<Line>)const;
+    double angle_between_2lines(Line);
 };
 
 #include "header.cpp"

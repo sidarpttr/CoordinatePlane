@@ -77,7 +77,13 @@ double Point::slope(Point& n)const{
     return (double)(n._y - _y) / (n._x - _x);
 }
 
-Line::Line(string name, Point& n1, Point& n2)   :   name(name)  {
+Line::Line(Point& n1, Point& n2, string name = ""){
+    if(name == "")
+        name = n1.name + n2.name;
+    for(char& c : name)
+        c = toupper(c);
+    this->name = '|' + name + '|';
+    
     slope = n1.slope(n2);
     distance = sqrt((n1._y - n2._y)*(n1._y - n2._y) + (n1._x - n2._x)*(n1._x - n2._x));
     angle = atan(slope) * 180 / PI;
@@ -97,4 +103,11 @@ void Line::info(std::initializer_list<Line> lines)const{
         std::cout << std::endl;
         for (int i = 0; i < 41; i++) std::cout << "-";
         std::cout << std::endl;
-    }
+}
+
+double Line::angle_between_2lines(Line l2){
+    double line1_slope = this->slope;
+    double line2_slope = l2.slope;
+    double angle = atan((line1_slope - line2_slope)/(1 + line1_slope * line2_slope));
+    return angle * 180 / PI;
+}
