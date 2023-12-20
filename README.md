@@ -36,3 +36,5 @@ CoordinatePlane is a simple library for creating a coordinate plane and performi
    ```cpp
    double angle = AB.angle_between_2lines(BC);    // Calculates the angle between line |AB| and line |BC|
    ```
+## Application Screenshot
+![CoordinatePlane Application](images/ss.png)
