@@ -21,13 +21,18 @@ CoordinatePlane is a simple library for creating a coordinate plane and performi
 
     ```cpp
     Line AB("AB", p1, p2); // Line 'AB' between points A and B
+    Line myLine(p1, p2); // Automatically names the line based on points (e.g., "AB" if points are named A and B)
     ```
 
 4. **Info Function**: Used to display information about the lines.
 
     ```cpp
     AB.info({AB}); // Display information about line 'AB'
+    AB.info({AB, BC, BC});    // Presents a table containing information about the specified lines ('AB', 'BC', 'BC').
     ```
 
     The `info` function provides information about the lines, including distance, slope, and angle.
-
+5. **Get Angle Between 2 Lines**
+   ```cpp
+   double angle = AB.angle_between_2lines(BC);    // Calculates the angle between line |AB| and line |BC|
+   ```
